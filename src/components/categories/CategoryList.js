@@ -4,13 +4,19 @@ import { ListGroup, ListGroupItem } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import * as categoryActions from "../../redux/actions/categoryActions"
+import * as productActions from "../../redux/actions/productActions"
 
 class CategoryList extends Component {
 
     componentDidMount() {
         this.props.actions.getCategories()
-        // console.log(this.props.categories)
+        // console.log(this.props)
 
+    }
+
+    selectCategory(category){
+        this.props.actions.changeCategory(category)
+        this.props.actions.getProducts(category.id)
     }
     
     render() {
@@ -28,7 +34,7 @@ class CategoryList extends Component {
                             <ListGroupItem
                                 active={this.props.currentCategory.id===category.id} 
                                 key={index}
-                                onClick={() => this.props.actions.changeCategory(category)}
+                                onClick={() =>this.selectCategory(category) }
                             
                             >
                                 {category.categoryName}
@@ -58,6 +64,8 @@ function mapDispatchToProps(dispatch) {
         actions: {
             getCategories: bindActionCreators(categoryActions.getCategories, dispatch),
             changeCategory: bindActionCreators(categoryActions.changeCategory, dispatch),
+            getProducts: bindActionCreators(productActions.getProducts, dispatch)
+
         }
     }
 }
