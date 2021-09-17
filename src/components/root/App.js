@@ -1,4 +1,6 @@
+import { Route, Switch } from "react-router";
 import { Container } from "reactstrap";
+import CartDetail from "../cart/CartDetail";
 import Navi from "../navi/Navi"
 import Dashboard from "./Dashboard";
 
@@ -7,8 +9,10 @@ function App() {
   return (
     <Container>
       <Navi/>
-
-      <Dashboard/>
+      <Switch>
+        <Route path="/" exact component={Dashboard}/>
+        <Route path="/cart" component={CartDetail}/>
+      </Switch>
     </Container>
   );
 }
