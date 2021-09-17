@@ -20,8 +20,10 @@ class CartDetail extends Component {
                     this.props.cart.length > 0 ?
                         (
                             <div>
-                                <h2>Navbar</h2>
-                                <table>
+                                <h2 style={{textAlign:"center",margin:"20px 0"}}>My Cart</h2>
+                                <table style={{
+                                    // border:"solid", 
+                                    width:"100%",}}>
 
                                     <thead>
                                         <tr>
@@ -38,11 +40,11 @@ class CartDetail extends Component {
                                         {
                                             this.props.cart.map((cartItem, index) => (
                                                 <tr key={index}>
-                                                    <td>{cartItem.product.id}</td>
+                                                    <td>{index+1}</td>
                                                     <td>{cartItem.product.productName}</td>
                                                     <td>{cartItem.product.quantityPerUnit}</td>
                                                     <td>{cartItem.product.unitPrice}</td>
-                                                    <td>{cartItem.product.unitsInStock}</td>
+                                                    <td>{cartItem.quantity}</td>
                                                     <td>
                                                     <Button 
                                                         color="danger"
