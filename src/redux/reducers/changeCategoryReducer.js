@@ -3,6 +3,7 @@ import initialState from "./initialState";
 
 
 export default function changeCategoryReducer(state=initialState.currentCategory, action){
+    
     switch (action.type) {
 
         case actionTypes.CHANGE_CATEGORY:
@@ -11,4 +12,5 @@ export default function changeCategoryReducer(state=initialState.currentCategory
         default:
             return state;
     }
+    
 }

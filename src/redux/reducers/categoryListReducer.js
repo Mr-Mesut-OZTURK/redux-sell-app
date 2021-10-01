@@ -7,7 +7,6 @@ export default function changeCategoryReducer(state=initialState.categories, act
     switch (action.type) {
 
         case actionTypes.GET_CATEGORIES_SUCCESS:
-            // console.log("reducer : ",action.payload)
             return action.payload
     
         default:

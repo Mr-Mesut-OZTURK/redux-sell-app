@@ -2,28 +2,31 @@ import * as actionTypes from "./actionTypes";
 
 
 
-export function changeCategory(category){
+export function changeCategory(category) {
 
     return {
-        type:actionTypes.CHANGE_CATEGORY,
+        type: actionTypes.CHANGE_CATEGORY,
         payload: category
     }
 }
 
 
-export function getCategoriesSuccess(categories){
+export function getCategoriesSuccess(categories) {
     // console.log("action : ",categories)
     return {
-        type:actionTypes.GET_CATEGORIES_SUCCESS,
+        type: actionTypes.GET_CATEGORIES_SUCCESS,
         payload: categories,
     }
 }
 
 
-export function getCategories(){
-    return function(dispatch){
+export function getCategories() {
+    return function (dispatch) {
         let url = "http://localhost:3000/categories"
-        return fetch(url).then(response => response.json())
-        .then(result => dispatch(getCategoriesSuccess(result)))
+        return (
+            fetch(url)
+                .then(response => response.json())
+                .then(result => dispatch(getCategoriesSuccess(result)))
+        )
     }
 }
