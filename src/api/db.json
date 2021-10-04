@@ -1,19 +1,39 @@
 {
   "products": [
     {
-      "id": 1
+      "id": 7
     },
     {
-      "id": 2
+      "id": 7,
+      "categoryId": 7,
+      "productName": "Uncle Bob's Organic Dried Pears",
+      "quantityPerUnit": "12 - 1 lb pkgs.",
+      "unitPrice": 30,
+      "unitsInStock": 15
     },
     {
-      "id": 4
+      "id": 7,
+      "categoryId": 7,
+      "productName": "Uncle Bob's Organic Dried Pears",
+      "quantityPerUnit": "12 - 1 lb pkgs.",
+      "unitPrice": 30,
+      "unitsInStock": 15
     },
     {
-      "id": 5
+      "id": 7,
+      "categoryId": 7,
+      "productName": "Uncle Bob's Organic Dried Pears",
+      "quantityPerUnit": "12 - 1 lb pkgs.",
+      "unitPrice": 30,
+      "unitsInStock": 15
     },
     {
-      "id": 6
+      "id": 7,
+      "categoryId": 7,
+      "productName": "Uncle Bob's Organic Dried Pears",
+      "quantityPerUnit": "12 - 1 lb pkgs.",
+      "unitPrice": 30,
+      "unitsInStock": 15
     },
     {
       "id": 7,

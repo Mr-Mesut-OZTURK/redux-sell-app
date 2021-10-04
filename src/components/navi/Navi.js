@@ -51,9 +51,9 @@ const Example = (props) => {
 
           <CartSummery />
 
-          <NavItem>
-            <NavLink style={{color:"white"}} href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-          </NavItem>
+          {/* <NavItem>
+            <NavLink disabled style={{color:"white"}} href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+          </NavItem> */}
 
         </Nav>
       </Collapse>
