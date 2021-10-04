@@ -62,7 +62,14 @@ class CartDetail extends Component {
                             </div>
                         )
                         :
-                        (<h2>Sepet Boş</h2>)
+                        (<h2
+                        style={{
+                            display: "grid",
+                            minHeight:"90vh",
+                            alignContent: "center",
+                            justifyContent:"center"
+                        }}
+                        >Sepet Boş</h2>)
                             
                 }
             </div>
