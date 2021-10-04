@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Badge, Button, Container } from 'reactstrap'
+
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+
+import { Link } from 'react-router-dom';
+
+import { Badge, Button, Container, Table } from 'reactstrap'
+
 import * as productActions from "../../redux/actions/productActions"
 import * as cartActions from "../../redux/actions/cartActions"
+
 import alertify from "alertifyjs"
-import { Link } from 'react-router-dom';
 
 
 class ProductList extends Component {
 
     componentDidMount() {
-        this.props.actions.getProducts()
+        this.props.actions.getProducts(this.props.currentCategory.id)
     }
 
     addToCart(product){
@@ -29,7 +34,7 @@ class ProductList extends Component {
                     <Badge style={{ backgroundColor: "green", fontSize: "1.3em" }}>products</Badge>
                     <Badge style={{ backgroundColor: "blue", fontSize: "1.3em" }}>{this.props.currentCategory.categoryName}</Badge>
                 </h3>
-                <table>
+                <Table>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -63,7 +68,7 @@ class ProductList extends Component {
                             ))
                         }
                     </tbody>
-                </table>
+                </Table>
             </Container>
         )
     }

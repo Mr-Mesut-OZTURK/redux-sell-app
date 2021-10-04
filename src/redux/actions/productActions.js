@@ -17,8 +17,11 @@ export function getProducts(categoryId) {
         if (categoryId) {
             url += "?categoryId=" + categoryId
         }
-        return fetch(url).then(response => response.json())
-            .then(result => dispatch(getProductsSuccess(result)))
+        return (
+            fetch(url)
+                .then(response => response.json())
+                .then(result => dispatch(getProductsSuccess(result)))
+        )
     }
 }
 
@@ -43,7 +46,7 @@ export function updateProductsSuccess(product) {
 
 export async function handleResponse(response) {
     console.log(response)
-    if(response.ok){
+    if (response.ok) {
         return response.json()
     }
 
@@ -59,7 +62,7 @@ export function handleError(error) {
 
 export function saveProductApi(product) {
     console.log(product)
-    return fetch("http://localhost:3000/products/" + (product.id?product.id:""),
+    return fetch("http://localhost:3000/products/" + (product.id || ""),
         {
             method: product.id ? "PUT" : "POST",
             headers: { "content-type": "aplication/json" },
@@ -72,13 +75,15 @@ export function saveProductApi(product) {
 
 export function saveProduct(product) {
     return function (dispatch) {
-        return saveProductApi(product)
-            .then(savedProduct => {
-                product.id ?
-                    dispatch(updateProductsSuccess(savedProduct))
-                    :
-                    dispatch(createProductSuccess(savedProduct))
-            }).catch(error => { throw error })
+        return (
+            saveProductApi(product)
+                .then(savedProduct => {
+                    product.id ?
+                        dispatch(updateProductsSuccess(savedProduct))
+                        :
+                        dispatch(createProductSuccess(savedProduct))
+                }).catch(error => { throw error })
+        )
     }
 }
 

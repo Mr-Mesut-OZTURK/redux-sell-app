@@ -11,6 +11,7 @@ export default function changeCategoryReducer(state=initialState.products, actio
             return action.payload
     
         default:
+            // console.log("product list state")
             return state;
 
     }
