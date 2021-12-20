@@ -23,8 +23,8 @@ class CategoryList extends Component {
         // console.log(this.props.categories)
         return (
             
-            <div>
-                <h3>categories</h3>
+            <div style={{cursor: 'pointer'}}>
+                <h3 className="bg-success text-light text-center p-2 rounded">categories</h3>
                 <ListGroup>
                     {
 
@@ -35,7 +35,6 @@ class CategoryList extends Component {
                                 active={this.props.currentCategory.id===category.id} 
                                 key={index}
                                 onClick={() =>this.selectCategory(category) }
-                            
                             >
                                 {category.categoryName}
                             </ListGroupItem>
@@ -45,7 +44,6 @@ class CategoryList extends Component {
                         ("")
                     }
                 </ListGroup>
-                {/* <h5>seçili kategori : {this.props.currentCategory.categoryName}</h5> */}
             </div>
         )
     }

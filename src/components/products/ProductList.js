@@ -30,28 +30,29 @@ class ProductList extends Component {
         // console.log(this.props);
         return (
             <Container>
-                <h3>
-                    <Badge style={{ backgroundColor: "green", fontSize: "1.3em" }}>products</Badge>
-                    <Badge style={{ backgroundColor: "blue", fontSize: "1.3em" }}>{this.props.currentCategory.categoryName}</Badge>
-                </h3>
-                <Table>
+                <div className="">
+                    {!this.props.currentCategory.categoryName && <Badge style={{ backgroundColor: "green", fontSize: "1.3em" }}>products</Badge>}
+                    <Badge style={{ backgroundColor: "green", fontSize: "1.3em", width: "100%"}}>{this.props.currentCategory.categoryName}</Badge>
+                </div>
+                <div className="table-responsive alert alert-primary p-0">
+                <table className="w-100 table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Quantity Per Unit</th>
-                            <th>Units in Stock</th>
+                        <tr className="bg-primary text-light">
+                            {/* <th>#</th> */}
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Stock</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             this.props.products.map((product, index) => (
-                                <tr key={index}>
-                                    <td>{product.id}</td>
+                                <tr key={index} style={{}}>
+                                    {/* <td>{product.id}</td> */}
                                     <td>
-                                        <Link to={"/saveproduct/" + product.id}>{product.productName}</Link>
+                                        <Link style={{textDecoration:'none', color:'black', width: "100%", display:"block"}} to={"/saveproduct/" + product.id}>{product.productName}</Link>
                                     </td>
                                     <td>{product.unitPrice}</td>
                                     <td>{product.quantityPerUnit}</td>
@@ -68,7 +69,8 @@ class ProductList extends Component {
                             ))
                         }
                     </tbody>
-                </Table>
+                </table>
+                </div>
             </Container>
         )
     }
