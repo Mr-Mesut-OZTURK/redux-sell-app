@@ -54,12 +54,12 @@ class CartSummery extends Component {
                                 <DropdownMenu right>
                                     {
                                         this.props.cart.map((cartItem, index) => (
-                                            <DropdownItem key={index}>
+                                            <DropdownItem key={index} className="d-flex justify-content-between">
                                                 <Badge
                                                     onClick={() => this.removeFromCart(cartItem)}
                                                     style={{ backgroundColor: "red", padding: "3px 8px 8px" }}
-                                                >-</Badge>
-                                                {cartItem.product.productName}
+                                                >x</Badge>
+                                                <span className="alert alert-primary w-100 p-0 mx-2">{cartItem.product.productName}</span>
                                                 <Badge style={{ backgroundColor: "green" }}>{cartItem.quantity}</Badge>
                                             </DropdownItem>
                                         ))

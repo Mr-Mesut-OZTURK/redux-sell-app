@@ -20,18 +20,25 @@ class CartDetail extends Component {
                     this.props.cart.length > 0 ?
                         (
                             <div>
-                                <h2 style={{textAlign:"center",margin:"20px 0"}}>My Cart</h2>
-                                <table style={{
-                                    // border:"solid", 
-                                    width:"100%",}}>
+                                <h2
+                                    className="alert alert-primary"
+                                    style={{ textAlign: "center", margin: "20px 0" }}
+                                >My Cart</h2>
+                                <table
+                                    style={{
+                                        // border:"solid", 
+                                        width: "100%",
+                                    }}
+                                    className="table table-striped alert alert-primary"
+                                >
 
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Product Name</th>
+                                            {/* <th>#</th> */}
+                                            <th>Name</th>
                                             <th>quantityPerUnit</th>
-                                            <th>unitPrice</th>
-                                            <th>unitsInStock</th>
+                                            <th>Price</th>
+                                            <th>Count</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -40,16 +47,16 @@ class CartDetail extends Component {
                                         {
                                             this.props.cart.map((cartItem, index) => (
                                                 <tr key={index}>
-                                                    <td>{index+1}</td>
+                                                    {/* <td>{index + 1}</td> */}
                                                     <td>{cartItem.product.productName}</td>
                                                     <td>{cartItem.product.quantityPerUnit}</td>
                                                     <td>{cartItem.product.unitPrice}</td>
                                                     <td>{cartItem.quantity}</td>
                                                     <td>
-                                                    <Button 
-                                                        color="danger"
-                                                        onClick={()=>this.delItem(cartItem)}
-                                                    >del</Button>
+                                                        <Button
+                                                            color="danger"
+                                                            onClick={() => this.delItem(cartItem)}
+                                                        >del</Button>
                                                     </td>
                                                 </tr>
                                             ))
@@ -59,18 +66,22 @@ class CartDetail extends Component {
                                     </thead>
 
                                 </table>
+
+                                <button className="btn btn-success w-100">BUY</button>
                             </div>
                         )
                         :
                         (<h2
-                        style={{
-                            display: "grid",
-                            minHeight:"90vh",
-                            alignContent: "center",
-                            justifyContent:"center"
-                        }}
-                        >Sepet Boş</h2>)
-                            
+                            style={{
+                                display: "grid",
+                                minHeight: "90vh",
+                                alignContent: "center",
+                                justifyContent: "center"
+                            }}
+                        >
+                        <span  className="alert alert-danger">Empty Cart</span>
+                        </h2>)
+
                 }
             </div>
         )
