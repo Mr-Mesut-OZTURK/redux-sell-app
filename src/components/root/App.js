@@ -8,24 +8,26 @@ import NotFound from "../common/NotFound";
 
 function App() {
   return (
-    <Container>
+    <>
 
-      <Navi/>
+      <Navi />
 
-      <Switch>
+      <Container>
+        <Switch>
 
-        <Route path="/" exact component={Dashboard}/>
-        <Route path="/product" component={Dashboard}/>
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/product" component={Dashboard} />
 
-        <Route path="/cart" component={CartDetail}/>
-        
-        <Route path="/saveproduct" exact component={AddOrUpdateProduct}/>
-        <Route path="/saveproduct/:productId" component={AddOrUpdateProduct}/>
-        
-        <Route component={NotFound}/>
-      
-      </Switch>
-    </Container>
+          <Route path="/cart" component={CartDetail} />
+
+          <Route path="/saveproduct" exact component={AddOrUpdateProduct} />
+          <Route path="/saveproduct/:productId" component={AddOrUpdateProduct} />
+
+          <Route component={NotFound} />
+
+        </Switch>
+      </Container>
+    </>
   );
 }
 
